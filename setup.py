@@ -3,7 +3,7 @@ from setuptools import setup
 APP = ['app.py']
 OPTIONS = {
     'argv_emulation': True,
-    'packages': ['pandas', 'yfinance'],
+    'packages': ['pandas', 'yfinance', 'openpyxl'],
 }
 
 setup(
