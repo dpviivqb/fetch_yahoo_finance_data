@@ -7,7 +7,7 @@ OPTIONS = {
     'includes': ['tkinter'],
     'plist': {
         'CFBundleName': 'YahooFinanceExporter',
-        'CFBundleShortVersionString': '1.0.8',
+        'CFBundleShortVersionString': '1.0.9',
         'CFBundleIdentifier': 'com.example.yahoofetcher',
         'NSPrincipalClass': 'NSApplication',
         'LSUIElement': False, 
