@@ -4,7 +4,6 @@ APP = ['app.py']
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['pandas', 'yfinance'],
-    'iconfile': 'resources/icon.icns',  # 可选
 }
 
 setup(
