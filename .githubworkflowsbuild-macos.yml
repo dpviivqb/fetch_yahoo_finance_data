@@ -26,6 +26,12 @@ jobs:
       - name: Build macOS App
         run: python3 setup.py py2app
 
+      - name: Clean everything except the .app
+        run: |
+          find . -maxdepth 1 ! -name 'dist' ! -name '.' -exec rm -rf {} +
+          cd dist
+          zip -r YahooFinanceExporter.zip YahooFinanceExporter.app
+
       - name: Compress App
         run: |
           cd dist
