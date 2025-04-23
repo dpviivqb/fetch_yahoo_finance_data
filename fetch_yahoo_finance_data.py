@@ -147,4 +147,8 @@ tk.OptionMenu(root, format_var, "xlsx", "csv").grid(row=4, column=1, sticky='w')
 # --- 按钮 ---
 tk.Button(root, text="📥 导出数据", command=fetch_data, width=20).grid(row=5, column=1, pady=20)
 
-root.mainloop()
+
+
+if __name__ == "__main__":
+    root.mainloop()
+
