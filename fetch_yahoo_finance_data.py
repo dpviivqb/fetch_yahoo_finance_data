@@ -109,46 +109,44 @@ def add_placeholder(entry, placeholder_text):
     entry.bind("<FocusOut>", on_focus_out)
 
 # ==== UI 构建 ====
-root = tk.Tk()
-root.title("📊 Yahoo Finance 批量数据导出器")
-root.geometry("600x400")
 
-# --- 代码输入框 ---
-tk.Label(root, text="代码：").grid(row=0, column=0, padx=10, pady=10, sticky='e')
-ticker_placeholder = "多个代码用英文逗号分隔，指数代码前加^（如：^AXJO,FMG.AX）"
-entry_ticker = tk.Entry(root, width=60)
-entry_ticker.grid(row=0, column=1)
-add_placeholder(entry_ticker, ticker_placeholder)
+def main():
+    global entry_ticker, entry_start, entry_end, interval_var, format_var
 
-# --- 开始日期 ---
-tk.Label(root, text="开始日期：").grid(row=1, column=0, padx=10, pady=10, sticky='e')
-start_placeholder = "YYYY-MM-DD（如：2019-07-01）"
-entry_start = tk.Entry(root, width=60)
-entry_start.grid(row=1, column=1)
-add_placeholder(entry_start, start_placeholder)
+    root = tk.Tk()
+    root.title("📊 Yahoo Finance 批量数据导出器")
+    root.geometry("600x400")
 
-# --- 结束日期 ---
-tk.Label(root, text="结束日期：").grid(row=2, column=0, padx=10, pady=10, sticky='e')
-end_placeholder = "YYYY-MM-DD（如：2024-07-01）"
-entry_end = tk.Entry(root, width=60)
-entry_end.grid(row=2, column=1)
-add_placeholder(entry_end, end_placeholder)
+    tk.Label(root, text="代码：").grid(row=0, column=0, padx=10, pady=10, sticky='e')
+    ticker_placeholder = "多个代码用英文逗号分隔，指数代码前加^（如：^AXJO,FMG.AX）"
+    entry_ticker = tk.Entry(root, width=60)
+    entry_ticker.grid(row=0, column=1)
+    add_placeholder(entry_ticker, ticker_placeholder)
 
-# --- 时间粒度 ---
-tk.Label(root, text="时间粒度：").grid(row=3, column=0, padx=10, pady=10, sticky='e')
-interval_var = tk.StringVar(value="1wk")
-tk.OptionMenu(root, interval_var, "1d", "1wk", "1mo").grid(row=3, column=1, sticky='w')
+    tk.Label(root, text="开始日期：").grid(row=1, column=0, padx=10, pady=10, sticky='e')
+    start_placeholder = "YYYY-MM-DD（如：2019-07-01）"
+    entry_start = tk.Entry(root, width=60)
+    entry_start.grid(row=1, column=1)
+    add_placeholder(entry_start, start_placeholder)
 
-# --- 导出格式 ---
-tk.Label(root, text="导出格式：").grid(row=4, column=0, padx=10, pady=10, sticky='e')
-format_var = tk.StringVar(value="xlsx")
-tk.OptionMenu(root, format_var, "xlsx", "csv").grid(row=4, column=1, sticky='w')
+    tk.Label(root, text="结束日期：").grid(row=2, column=0, padx=10, pady=10, sticky='e')
+    end_placeholder = "YYYY-MM-DD（如：2024-07-01）"
+    entry_end = tk.Entry(root, width=60)
+    entry_end.grid(row=2, column=1)
+    add_placeholder(entry_end, end_placeholder)
 
-# --- 按钮 ---
-tk.Button(root, text="📥 导出数据", command=fetch_data, width=20).grid(row=5, column=1, pady=20)
+    tk.Label(root, text="时间粒度：").grid(row=3, column=0, padx=10, pady=10, sticky='e')
+    interval_var = tk.StringVar(value="1wk")
+    tk.OptionMenu(root, interval_var, "1d", "1wk", "1mo").grid(row=3, column=1, sticky='w')
 
+    tk.Label(root, text="导出格式：").grid(row=4, column=0, padx=10, pady=10, sticky='e')
+    format_var = tk.StringVar(value="xlsx")
+    tk.OptionMenu(root, format_var, "xlsx", "csv").grid(row=4, column=1, sticky='w')
 
+    tk.Button(root, text="📥 导出数据", command=fetch_data, width=20).grid(row=5, column=1, pady=20)
+
+    root.mainloop()
 
 if __name__ == "__main__":
-    root.mainloop()
+    main()
 
