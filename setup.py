@@ -1,6 +1,6 @@
 from setuptools import setup
 
-APP = ['app.py']
+APP = ['fetch_yahoo_finance_data.py']
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['pandas', 'yfinance', 'openpyxl'],
